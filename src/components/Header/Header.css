@@ -1,0 +1,9 @@
+.navbar .text-white{
+    color: white;
+}
+.header-search{
+    background: #80808077;
+    color: white; 
+    font-weight:400;
+    border: 2px solid white;
+}
