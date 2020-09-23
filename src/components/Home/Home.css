@@ -18,34 +18,34 @@
     width: 100%;
     height: 100%;
     z-index: 1;
-    opacity: 0.7;
+    opacity: 0.5;
     background-image: url('../../img/Image/Rectangle\ 1.png');
     background-repeat: no-repeat;
     background-position: left top;
     background-size: cover;
 }
-.card-img1{
-    background-image: url('../../img/Image/Sundarban.png');
-}
-.card-img2{
-    background-image: url('../../img/Image/Sajek.png');
-}
-.card-img3{
-    background-image: url('../../img/Image/Sreemongol.png');
-}
 .card-style{
     border: none;
-    border-radius: 23px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+}
+.card-style img{
     width: 200px;
     height: 300px;
+    position: relative;
+    z-index: 1;
+    opacity: 0.9;
 }
-.card-style h2{
-    padding-top: 250px;
-    padding-left: 10px;
+.card-style h3{
+    margin-top: 250px;
+    margin-left: 10px;
+    position: absolute;
+    z-index: 2;
 }
-.card-style:active{
-    border: 2px solid darkorange;
+.card-style:active img{ 
+    border: 3px solid darkorange;
+    width: 200px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.card-style:hover{
+    cursor: pointer;
 }

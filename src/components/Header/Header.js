@@ -1,22 +1,27 @@
 import React from 'react';
 import { Button, Container, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
-import logo from '../../img/Logo.png';
+import { Link, useHistory } from 'react-router-dom';
+import logo from '../../img/Logo2.png';
 import './Header.css';
 
 const Header = () => {
+    const history = useHistory();
+    const handleLogin = () => {
+        history.push('/login')
+    };
     return (
-        <Container className="home-info">
+        <Container className="home-info header-wrapper">
             <Navbar className="navbar">
-                <Navbar.Brand className="pr-5"><img style={{height:'40px'}} src={logo} alt=""/></Navbar.Brand>
+                <Link to='/'><Navbar.Brand className="pr-5"><img src={logo} alt=""/></Navbar.Brand></Link>
                 <Form inline>
-                <FormControl type="text" placeholder="Search your Destination" className="mr-sm-2 header-search" />
+                    <FormControl className="mr-sm-2 header-search text-white" type="text" placeholder="Search your Destination"/>
                 </Form>
-                <Nav className="ml-auto mx-1 text-white">
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#features">Features</Nav.Link>
-                    <Nav.Link href="#pricing">Pricing</Nav.Link>
+                <Nav className="ml-auto mx-1">
+                    <Nav.Link href="/home"><Link to="/home" className="text-white font-weight-bold">Home</Link></Nav.Link>
+                    <Nav.Link className="text-white font-weight-bold" href="#features">Features</Nav.Link>
+                    <Nav.Link className="text-white font-weight-bold" href="#pricing">Pricing</Nav.Link>
                 </Nav>
-                <Button variant="warning">Log In</Button>
+                <Button onClick={() => handleLogin()} variant="warning">Log In</Button>
             </Navbar>
         </Container>
     );

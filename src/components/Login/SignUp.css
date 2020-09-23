@@ -1,0 +1,12 @@
+.form-style{
+    /* style={{border: '1px solid gray', padding: '20px', borderRadius: "10px", width:'400px'}}; */
+    border: 1px solid lightgray;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+}
+.btn-style {
+    text-align: center;
+    width: 250px;
+    border-radius: 20px;
+}

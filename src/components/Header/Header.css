@@ -1,8 +1,17 @@
+.header-wrapper{
+    background-color: #0000005b;
+}
 .navbar .text-white{
     color: white;
 }
+.navbar img{
+    height: 50px;
+    padding: 5px;
+    background-color: #000000af;
+    border-radius: 5px;
+}
 .header-search{
-    background: #80808077;
+    background: #80808038;
     color: white; 
     font-weight:400;
     border: 2px solid white;
