@@ -13,7 +13,7 @@ const Booking = () => {
         history.push('/signUp')
     }
     return (
-        <Container>
+        <Container className="home-wrapper">
             <Header></Header>
             <Row className="p-5">
                 <Col className="p-5 mt-5">

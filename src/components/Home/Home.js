@@ -7,19 +7,14 @@ import './Home.css';
 
 const Home = () => {
     const places = destinationData;
-    // const [places, setPlaces] = useState([]);
-    // useEffect = (() => {
-    //     setPlaces(destinationData)
-    // }, []);
     const [showPlace, setShowPlace] = useState(places[0]);
-    // console.log(showPlace);
     const history = useHistory();
     const handleBooking = placeName => {
         history.push(`/booking/${placeName}`)
     };
 
     return (
-        <Container fluid className="home-wrapper">
+        <Container fluid>
             <Header></Header>
             <Container className="home-info mt-5 pt-5">
                 <Row className=''>

@@ -1,29 +1,3 @@
-.home-wrapper{
-    height: 700px;
-    position: relative;
-    background: #363535;
-    overflow: hidden;
-}
-.home-wrapper .home-info {
-    position: relative;
-    z-index: 2;
-    color: white;
-}
-.home-wrapper:before {
-    content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    opacity: 0.5;
-    background-image: url('../../img/Image/Rectangle\ 1.png');
-    background-repeat: no-repeat;
-    background-position: left top;
-    background-size: cover;
-}
 .card-style{
     border: none;
 }

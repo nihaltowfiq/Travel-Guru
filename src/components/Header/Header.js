@@ -10,7 +10,7 @@ const Header = () => {
         history.push('/login')
     };
     return (
-        <Container className="home-info header-wrapper">
+        <Container >
             <Navbar className="navbar">
                 <Link to='/'><Navbar.Brand className="pr-5"><img src={logo} alt=""/></Navbar.Brand></Link>
                 <Form inline>
