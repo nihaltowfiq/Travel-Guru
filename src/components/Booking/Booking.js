@@ -10,7 +10,7 @@ const Booking = () => {
     const {name, longDescription} = destination;
     const history = useHistory();
     const handleStartBooking = () => {
-        history.push('/signUp')
+        history.push('/HotelDetails')
     }
     return (
         <Container className="home-wrapper">
@@ -21,25 +21,25 @@ const Booking = () => {
                     <h6>{longDescription}</h6>
                 </Col>
                 <Col className="p-5">
-                <Form style={{border: '1px solid gray', padding: '20px', borderRadius: "10px"}}>
+                <Form className="form-style" style={{paddingBottom:'20px'}}>
                     <Form.Group controlId="formGridAddress1">
                         <Form.Label>Origin</Form.Label>
-                        <Form.Control placeholder="dhaka" />
+                        <Form.Control size='lg' placeholder="Your Location" required/>
                     </Form.Group>
 
                     <Form.Group controlId="formGridAddress2">
                         <Form.Label>Destination</Form.Label>
-                        <Form.Control placeholder={placeName} />
+                        <Form.Control size='lg' placeholder={placeName} />
                     </Form.Group>
                     <Form.Row>
                         <Form.Group as={Col} controlId="formGridEmail">
                             <Form.Label>From</Form.Label>
-                            <Form.Control type="date" placeholder="Enter email" />
+                            <Form.Control size='sm' type="date" placeholder="Enter email" />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridPassword">
                             <Form.Label>To</Form.Label>
-                            <Form.Control type="date" placeholder="Password" />
+                            <Form.Control size='sm' type="date" placeholder="Password" />
                         </Form.Group>
                     </Form.Row>
                     <Button onClick={() => handleStartBooking()} style={{width:"100%"}} variant="warning" type="submit">
