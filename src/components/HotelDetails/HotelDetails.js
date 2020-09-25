@@ -1,22 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 import hotelData from '../../fakeData/hotelData';
 import './HotelDetail.css';
 
 const HotelDetails = () => {
-    const [hotels, setHotel] = useState([])
+    const {placeName} = useParams();
+    const [hotels, setHotel] = useState([]);
     useEffect(() => {
         setHotel(hotelData)
     }, []);
-    console.log(hotels);
 
     return (
         <Container>
+            <h2 style={{textAlign:'center'}}>Hotel Details for {placeName}</h2>
             <Row>
                 <Col className="hotel-style">
                     {
                         hotels.map(hotel =>
-                            <Row className="hotel-card">
+                            <Row key={hotel.id} className="hotel-card">
                                 <Col>
                                     <img className="room-img" src={hotel.img} alt="" />
                                 </Col>

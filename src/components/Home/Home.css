@@ -23,3 +23,9 @@
 .card-style:hover{
     cursor: pointer;
 }
+.card-detail h2{
+    font-size: 50px;
+}
+.card-detail p{
+    text-align: justify;
+}

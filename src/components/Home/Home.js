@@ -18,21 +18,25 @@ const Home = () => {
             <Header></Header>
             <Container className="home-info mt-5 pt-5">
                 <Row className=''>
-                    <Col>
+                    <Col className="card-detail" lg={4}>
                         <h2>{showPlace.name.toUpperCase()}</h2>
                         <p>{showPlace.shortDescription}</p>
                         <Button onClick={() => handleBooking(showPlace.name)} variant="warning">Booking →</Button>
                     </Col>
-                    {
-                        places.map( place => 
-                            <Col key={place.id} className='ml-5'>
-                                <div onClick={() => setShowPlace(place)} className="card-style" >
-                                    <h3>{place.name}</h3>
-                                    <img src={place.img} alt=""/>
-                                </div>
-                            </Col>
-                        )
-                    }
+                    <Col lg={8}>
+                        <Row>
+                            {
+                                places.map(place =>
+                                    <Col sm={3} key={place.id} className='ml-5'>
+                                        <div onClick={() => setShowPlace(place)} className="card-style" >
+                                            <h3>{place.name}</h3>
+                                            <img src={place.img} alt="" />
+                                        </div>
+                                    </Col>
+                                )
+                            }
+                        </Row>
+                    </Col>
                 </Row>
             </Container>
         </Container>

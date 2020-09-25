@@ -19,6 +19,7 @@ function App() {
     <div className="App">
       <main>
         <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
+          <p>{loggedInUser.email} {loggedInUser.name}</p>
           <Router>
             <Switch>
               <Route path='/home'>
@@ -31,7 +32,7 @@ function App() {
                 <Header></Header>
                 <SignUp></SignUp>
               </Route>
-              <PrivateRoute path='/HotelDetails'>
+              <PrivateRoute path='/HotelDetails/:placeName'>
                 <Header></Header>
                 <HotelDetails></HotelDetails>
               </PrivateRoute>

@@ -10,3 +10,6 @@
     font-weight:400;
     border: 2px solid white;
 }
+.header-search::placeholder{
+    color: white;
+}
