@@ -8,10 +8,11 @@ export const initializeLoginFramework = () => {
     };
 };
 
-export const createUserWithEmailAndPassword = (email, password) => {
+export const createUserAccount = (email, password) => {
     return firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(res => {
             const newUserInfo = res.user;
+            newUserInfo.isSignedIn = true;
             newUserInfo.error = '';
             newUserInfo.success = true;
             return newUserInfo;
@@ -24,32 +25,22 @@ export const createUserWithEmailAndPassword = (email, password) => {
             return newUserInfo;
         });
 };
-export const signInWithEmailAndPassword = (email, password) => {
+
+export const signInUserAcount = (email, password) => {
     return firebase.auth().signInWithEmailAndPassword(email, password)
         .then(res => {
             const newUserInfo = res.user;
+            newUserInfo.isSignedIn = true;
             newUserInfo.error = '';
-            newUserInfo.success = true;
             return newUserInfo;
         })
         .catch(error => {
             const errorMessage = error.message;
             const newUserInfo = {};
             newUserInfo.error = errorMessage;
-            newUserInfo.success = false;
             return newUserInfo;
         });
 };
-
-
-
-
-
-
-
-
-
-
 
 export const handleGoogleSignIn = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
@@ -60,10 +51,13 @@ export const handleGoogleSignIn = () => {
             return signedInUser;
         })
         .catch(error => {
-            var errorMessage = error.message;
-            console.log(errorMessage);
+            const errorMessage = error.message;
+            const newUserInfo = {};
+            newUserInfo.error = errorMessage;
+            return newUserInfo;
         });
 };
+
 export const handleFbSignIn = () => {
     const provider = new firebase.auth.FacebookAuthProvider();
     return firebase.auth().signInWithPopup(provider)
@@ -72,9 +66,30 @@ export const handleFbSignIn = () => {
             const signedInUser = { isSignedIn: true, name: displayName, email };
             return signedInUser;
         })
-        .catch(function (error) {
+        .catch(error => {
             const errorMessage = error.message;
-            console.log(errorMessage);
+            const newUserInfo = {};
+            newUserInfo.error = errorMessage;
+            return newUserInfo;
         });
 };
+
+export const signOutUser = () => {
+    return firebase.auth().signOut()
+        .then( res => {
+            const signedOutUser = {
+                isSignedIn: false,
+                name: '',
+                email: '',
+                password: '',
+                confirmPassword: '',
+                error: '',
+                success: false
+            };
+            return signedOutUser;
+        })
+        .catch(error => {
+
+        });
+}
 

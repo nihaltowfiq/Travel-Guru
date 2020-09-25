@@ -1,10 +1,13 @@
 .hotel-style .room-img{
-    height: 150px;
-    padding: 5px;
+    height: 160px;
 }
 .hotel-style .star-icon{
     height: 15px;
 }
 .hotel-card{
     padding: 5px;
+    margin: 5px;
+}
+.hotel-card p{
+    margin-bottom: 0;
 }

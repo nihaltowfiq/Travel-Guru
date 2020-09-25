@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import hotelData from '../../fakeData/hotelData';
+import Header from '../Header/Header';
 import './HotelDetail.css';
 
 const HotelDetails = () => {
@@ -13,7 +14,8 @@ const HotelDetails = () => {
 
     return (
         <Container>
-            <h2 style={{textAlign:'center'}}>Hotel Details for {placeName}</h2>
+            <Header></Header>
+            <h4 style={{textAlign:'center'}}>Hotel Details for {placeName}</h4>
             <Row>
                 <Col className="hotel-style">
                     {
@@ -23,7 +25,7 @@ const HotelDetails = () => {
                                     <img className="room-img" src={hotel.img} alt="" />
                                 </Col>
                                 <Col>
-                                    <h4>{hotel.name}</h4>
+                                    <h6>{hotel.name}</h6>
                                     <p>{hotel.detail}</p>
                                     <small>{hotel.avail}</small>
                                     <Row>
@@ -31,7 +33,7 @@ const HotelDetails = () => {
                                             <small><img className="star-icon" src={hotel.icon} alt=""/>{hotel.ratings}</small>
                                         </Col>
                                         <Col>
-                                            <p>${hotel.price}/<small>night</small></p>
+                                            <span>${hotel.price}/<small>night</small></span>
                                         </Col>
                                     </Row>
                                 </Col>
