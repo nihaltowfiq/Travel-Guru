@@ -29,7 +29,6 @@ function App() {
       <main>
         <UserData.Provider value={[user, setUser]}>
           <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-            <p>{loggedInUser.email} {loggedInUser.name}</p>
             <Router>
               <Switch>
                 <Route path='/home'>
@@ -47,7 +46,6 @@ function App() {
                 <PrivateRoute path='/HotelDetails/:placeName'>
                   <HotelDetails></HotelDetails>
                 </PrivateRoute>
-                
                 <Route path='*'>
                   <Header></Header>
                   <NotFound></NotFound>

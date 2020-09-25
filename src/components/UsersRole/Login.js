@@ -136,10 +136,10 @@ const SignUp = () => {
 
                     <hr style={{ backgroundColor: 'gray', height: '1px' }} />
                     <div style={{ textAlign: "center" }}>
-                        <Button onClick={googleSignIn} className='btn-style' variant="secondary"> <img style={{ height: '25px' }} src={googleIcon} alt="" />Sign in with Google</Button>
+                        <Button onClick={googleSignIn} className='btn-style' variant="secondary"> <img style={{ height: '25px' }} src={googleIcon} alt="" /> Sign in with Google</Button>
                         <br />
                         <br />
-                        <Button onClick={fbSignIn} className='btn-style' variant="secondary"><img style={{ height: '25px' }} src={fbIcon} alt="" />Sign in with Facebook</Button>
+                        <Button onClick={fbSignIn} className='btn-style' variant="secondary"><img style={{ height: '25px' }} src={fbIcon} alt="" /> Sign in with Facebook</Button>
                     </div>
                 </Col>
             </Row>

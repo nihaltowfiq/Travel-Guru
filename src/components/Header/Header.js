@@ -32,7 +32,7 @@ const Header = () => {
                 </Nav>
                 {
                     user.isSignedIn ?
-                        <Button onClick={signOut} variant="warning" className="mx-2">Logout, {user.name}</Button>
+                        <Button onClick={signOut} variant="warning" className="mx-2">Logout, {user.email}</Button>
                         : <Link to="/login">
                             <Button variant="warning" className="mx-2">Login</Button>
                         </Link>
