@@ -121,7 +121,7 @@ const SignUp = () => {
                                 newUser ? <small>Already have an acount? </small>
                                     : <small>Don't have an acount? </small>
                             }
-                            <Link onClick={() => { setNewUser(!newUser); setUser({error: ''}) }} className="text-warning">
+                            <Link onClick={() => { setNewUser(!newUser); setUser({ error: '' }) }} className="text-warning">
                                 {
                                     !newUser ? <span>Create an acount</span>
                                         : <span>Login</span>
