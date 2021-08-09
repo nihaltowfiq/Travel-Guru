@@ -1,15 +1,15 @@
-.navbar .text-white{
-    color: white;
+.navbar .text-white {
+	color: white;
 }
-.navbar img{
-    height: 50px;
+.navbar img {
+	height: 50px;
 }
-.header-search{
-    background: #80808038;
-    color: white; 
-    font-weight:400;
-    border: 2px solid white;
+.header-search {
+	background: #80808038;
+	color: white;
+	font-weight: 400;
+	border: 2px solid white;
 }
-.header-search::placeholder{
-    color: white;
+.header-search::placeholder {
+	color: white;
 }
