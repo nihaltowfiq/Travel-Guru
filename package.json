@@ -1,6 +1,10 @@
 {
 	"name": "travel-guru",
 	"version": "0.1.0",
+	"author": {
+		"name": "Nihal Towfiq",
+		"email": "nihal.towfiq@gmail.com"
+	},
 	"private": true,
 	"dependencies": {
 		"@testing-library/jest-dom": "^4.2.4",
@@ -34,5 +38,9 @@
 			"last 1 firefox version",
 			"last 1 safari version"
 		]
+	},
+	"devDependencies": {
+		"eslint": "^7.32.0",
+		"eslint-plugin-react": "^7.24.0"
 	}
 }
