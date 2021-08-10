@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
-import { destinationData } from '../../fakeData/destinationData';
+import { destinationData } from '../../database/destinationData';
 import Header from '../Header/Header';
 
 const Booking = () => {

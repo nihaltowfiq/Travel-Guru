@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
-import { destinationData } from '../../fakeData/destinationData';
+import { destinationData } from '../../database/destinationData';
 import Header from '../Header/Header';
 import './Home.css';
 
