@@ -1,18 +1,18 @@
 import React, { useContext, useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import fbIcon from '../../img/Icon/fb.png';
-import googleIcon from '../../img/Icon/google.png';
+import fbIcon from '../../assets/images/Icon/fb.png';
+import googleIcon from '../../assets/images/Icon/google.png';
 import './Login.css';
 import { UserContext, UserData } from '../../App';
+import Header from '../Header/Header';
 import {
-	signInUserAcount,
 	createUserAccount,
 	handleFbSignIn,
 	handleGoogleSignIn,
 	initializeLoginFramework,
-} from './AuthManager';
-import Header from '../Header/Header';
+	signInUserAcount,
+} from '../../libs/api/AuthManager';
 
 const SignUp = () => {
 	const [loggedInUser, setLoggedInUser] = useContext(UserContext);

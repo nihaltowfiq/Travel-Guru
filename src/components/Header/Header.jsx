@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import { Button, Container, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { UserContext, UserData } from '../../App';
-import logo from '../../img/Logo2.png';
+import logo from '../../assets/images/Logo/Logo2.png';
+import { signOutUser } from '../../libs/api/AuthManager';
 import './Header.css';
-import { signOutUser } from '../UsersRole/AuthManager';
 
 const Header = () => {
 	const [user, setUser] = useContext(UserData);

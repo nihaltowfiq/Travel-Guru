@@ -24,6 +24,7 @@ function App() {
 		error: '',
 		success: false,
 	});
+
 	return (
 		<div className="App">
 			<main>

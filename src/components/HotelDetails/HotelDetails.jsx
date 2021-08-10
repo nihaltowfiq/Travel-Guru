@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import hotelData from '../../database/hotelData';
+import hotelData from '../../libs/database/hotelData';
 import Header from '../Header/Header';
 import './HotelDetail.css';
 
