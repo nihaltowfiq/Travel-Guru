@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Fragment, useEffect, useState } from 'react';
+import { Col, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import hotelData from '../../libs/database/hotelData';
-import Header from '../Header/Header';
 import './HotelDetail.css';
 
 const HotelDetails = () => {
@@ -13,8 +12,7 @@ const HotelDetails = () => {
 	}, []);
 
 	return (
-		<Container>
-			<Header></Header>
+		<Fragment>
 			<h4 style={{ textAlign: 'center' }}>Hotel Details for {placeName}</h4>
 			<Row>
 				<Col className="hotel-style">
@@ -46,7 +44,7 @@ const HotelDetails = () => {
 				</Col>
 				<Col></Col>
 			</Row>
-		</Container>
+		</Fragment>
 	);
 };
 

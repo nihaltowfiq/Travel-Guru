@@ -1,8 +1,7 @@
 import React from 'react';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import { destinationData } from '../../libs/database/destinationData';
-import Header from '../Header/Header';
 
 const Booking = () => {
 	const { placeName } = useParams();
@@ -10,8 +9,7 @@ const Booking = () => {
 	const { name, longDescription } = destination;
 
 	return (
-		<Container className="home-wrapper">
-			<Header></Header>
+		<div className="home-wrapper">
 			<Row className="p-5">
 				<Col className="p-5 mt-5 card-detail">
 					<h2>{name.toUpperCase()}</h2>
@@ -47,7 +45,7 @@ const Booking = () => {
 					</Form>
 				</Col>
 			</Row>
-		</Container>
+		</div>
 	);
 };
 

@@ -90,72 +90,69 @@ const SignUp = () => {
 		e.preventDefault();
 	};
 	return (
-		<Container>
-			<Header></Header>
-			<Row className="justify-content-md-center mt-3">
-				<Col md="auto">
-					<Form className="form-style">
-						{newUser ? <h5>Create an acount</h5> : <h5>Login</h5>}
-						{newUser && (
-							<Form.Group onBlur={handleBlur} controlId="name">
-								<Form.Control required name="name" type="text" placeholder="Your Name" />
-							</Form.Group>
-						)}
-						<Form.Group onBlur={handleBlur} controlId="email">
-							<Form.Control required name="email" type="email" placeholder="Email" />
+		<Row className="justify-content-md-center mt-3">
+			<Col md="auto">
+				<Form className="form-style">
+					{newUser ? <h5>Create an acount</h5> : <h5>Login</h5>}
+					{newUser && (
+						<Form.Group onBlur={handleBlur} controlId="name">
+							<Form.Control required name="name" type="text" placeholder="Your Name" />
 						</Form.Group>
-						<Form.Group onBlur={handleBlur} controlId="password">
-							<Form.Control required name="password" type="password" placeholder="Password" />
+					)}
+					<Form.Group onBlur={handleBlur} controlId="email">
+						<Form.Control required name="email" type="email" placeholder="Email" />
+					</Form.Group>
+					<Form.Group onBlur={handleBlur} controlId="password">
+						<Form.Control required name="password" type="password" placeholder="Password" />
+					</Form.Group>
+					{newUser && (
+						<Form.Group onBlur={handleBlur} controlId="confirmPassword">
+							<Form.Control
+								required
+								name="confirmPassword"
+								type="password"
+								placeholder="Confirm Password"
+							/>
 						</Form.Group>
-						{newUser && (
-							<Form.Group onBlur={handleBlur} controlId="confirmPassword">
-								<Form.Control
-									required
-									name="confirmPassword"
-									type="password"
-									placeholder="Confirm Password"
-								/>
-							</Form.Group>
-						)}
-						<Button onClick={handleSubmit} style={{ width: '100%' }} variant="warning" type="submit">
-							{newUser ? <span>Create an acount</span> : <span>Login</span>}
-						</Button>
-						<br />
-						<p style={{ textAlign: 'center', marginTop: '5px' }}>
-							{newUser ? <small>Already have an acount? </small> : <small>Don't have an acount? </small>}
-							<Link
-								onClick={() => {
-									setNewUser(!newUser);
-									setUser({ error: '' });
-								}}
-								className="text-warning"
-							>
-								{!newUser ? <span>Create an acount</span> : <span>Login</span>}
-							</Link>
+					)}
+					<Button onClick={handleSubmit} style={{ width: '100%' }} variant="warning" type="submit">
+						{newUser ? <span>Create an acount</span> : <span>Login</span>}
+					</Button>
+					<br />
+					<p style={{ textAlign: 'center', marginTop: '5px' }}>
+						{newUser ? <small>Already have an acount? </small> : <small>Don't have an acount? </small>}
+						<Link
+							onClick={() => {
+								setNewUser(!newUser);
+								setUser({ error: '' });
+							}}
+							className="text-warning"
+						>
+							{!newUser ? <span>Create an acount</span> : <span>Login</span>}
+						</Link>
+					</p>
+					<p style={{ color: 'red', textAlign: 'center' }}>{user.error}</p>
+					{user.success && (
+						<p style={{ color: 'white', textAlign: 'center', fontWeight: 'bold' }}>
+							User Created Successfully
 						</p>
-						<p style={{ color: 'red', textAlign: 'center' }}>{user.error}</p>
-						{user.success && (
-							<p style={{ color: 'white', textAlign: 'center', fontWeight: 'bold' }}>
-								User Created Successfully
-							</p>
-						)}
-					</Form>
+					)}
+				</Form>
 
-					<hr style={{ backgroundColor: 'gray', height: '1px' }} />
-					<div style={{ textAlign: 'center' }}>
-						<Button onClick={googleSignIn} className="btn-style" variant="secondary">
-							{' '}
-							<img style={{ height: '25px' }} src={googleIcon} alt="" /> Sign in with Google
-						</Button>
-						<br />
-						<br />
-						<Button onClick={fbSignIn} className="btn-style" variant="secondary">
-							<img style={{ height: '25px' }} src={fbIcon} alt="" /> Sign in with Facebook
-						</Button>
-					</div>
-				</Col>
-			</Row>
-		</Container>
+				<hr style={{ backgroundColor: 'gray', height: '1px' }} />
+				<div style={{ textAlign: 'center' }}>
+					<Button onClick={googleSignIn} className="btn-style" variant="secondary">
+						{' '}
+						<img style={{ height: '25px' }} src={googleIcon} alt="" /> Sign in with Google
+					</Button>
+					<br />
+					<br />
+					<Button onClick={fbSignIn} className="btn-style" variant="secondary">
+						<img style={{ height: '25px' }} src={fbIcon} alt="" /> Sign in with Facebook
+					</Button>
+				</div>
+			</Col>
+		</Row>
 	);
 };
 
