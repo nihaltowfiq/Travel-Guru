@@ -1,11 +1,10 @@
 import React, { useContext, useState } from 'react';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import fbIcon from '../../assets/images/Icon/fb.png';
 import googleIcon from '../../assets/images/Icon/google.png';
 import './Login.css';
 import { UserContext, UserData } from '../../App';
-import Header from '../Header/Header';
 import {
 	createUserAccount,
 	handleFbSignIn,

@@ -14,7 +14,7 @@
 	position: absolute;
 	z-index: 2;
 }
-.card-style:active img {
+.active img {
 	border: 3px solid darkorange;
 	width: 200px;
 	border-radius: 20px;

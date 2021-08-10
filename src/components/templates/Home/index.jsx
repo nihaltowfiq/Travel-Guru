@@ -1,12 +1,10 @@
 import { useState } from 'react';
-import { Button, Col, Row } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
-import { destinationData } from '../../libs/database/destinationData';
+import { Button, Col, Row } from 'react-bootstrap';
 import './Home.css';
 
-const Home = () => {
-	const places = destinationData;
-	const [showPlace, setShowPlace] = useState(places[0]);
+export const Home = ({ data }) => {
+	const [showPlace, setShowPlace] = useState(data[0]);
 	const history = useHistory();
 	const handleBooking = (placeName) => {
 		history.push(`/booking/${placeName}`);
@@ -23,9 +21,12 @@ const Home = () => {
 			</Col>
 			<Col lg={8}>
 				<Row>
-					{places.map((place) => (
+					{data.map((place) => (
 						<Col sm={3} key={place.id} className="ml-5">
-							<div onClick={() => setShowPlace(place)} className="card-style">
+							<div
+								onClick={() => setShowPlace(place)}
+								className={`card-style ${showPlace.id === place.id ? 'active' : ''}`}
+							>
 								<h3>{place.name}</h3>
 								<img src={place.img} alt="" />
 							</div>
@@ -36,5 +37,3 @@ const Home = () => {
 		</Row>
 	);
 };
-
-export default Home;

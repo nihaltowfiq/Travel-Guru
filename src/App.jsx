@@ -1,13 +1,12 @@
 import { createContext, useState } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import Home from './components/Home/Home';
 import NotFound from './components/NotFound/NotFound';
-import Header from './components/Header/Header';
 import Booking from './components/Booking/Booking';
 import Login from './components/UsersRole/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import HotelDetails from './components/HotelDetails/HotelDetails';
 import { MainLayout } from './components/others/Layouts/MainLayout';
+import { Home } from './pages/Home';
 
 export const UserContext = createContext();
 export const UserData = createContext();
