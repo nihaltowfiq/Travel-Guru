@@ -1,12 +1,8 @@
 import { createContext, useState } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import NotFound from './components/NotFound/NotFound';
-import Booking from './components/Booking/Booking';
-import Login from './components/UsersRole/Login';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
-import HotelDetails from './components/HotelDetails/HotelDetails';
 import { MainLayout } from './components/others/Layouts/MainLayout';
-import { Home } from './pages/Home';
+import { Home, Booking, Auth, NotFound, HotelDetails } from './pages';
+import { PrivateRoute } from './components/others';
 
 export const UserContext = createContext();
 export const UserData = createContext();
@@ -31,7 +27,7 @@ function App() {
 						<Redirect from="/home" to="/" />
 						<Route exact path="/" component={Home} />
 						<Route path="/booking/:placeName" component={Booking} />
-						<Route path="/login" component={Login} />
+						<Route path="/login" component={Auth} />
 						<PrivateRoute path="/HotelDetails/:placeName">
 							<HotelDetails />
 						</PrivateRoute>

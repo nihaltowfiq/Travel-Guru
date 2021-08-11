@@ -3,7 +3,7 @@ import { Button, Col, Form, Row } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
 import { destinationData } from '../../libs/database/destinationData';
 
-const Booking = () => {
+export const Booking = () => {
 	const { placeName } = useParams();
 	const destination = destinationData.find((place) => place.name === placeName);
 	const { name, longDescription } = destination;
@@ -48,5 +48,3 @@ const Booking = () => {
 		</div>
 	);
 };
-
-export default Booking;

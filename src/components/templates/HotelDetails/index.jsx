@@ -1,10 +1,10 @@
 import { Fragment, useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import hotelData from '../../libs/database/hotelData';
+import hotelData from '../../../libs/database/hotelData';
 import './HotelDetail.css';
 
-const HotelDetails = () => {
+export const HotelDetails = () => {
 	const { placeName } = useParams();
 	const [hotels, setHotel] = useState([]);
 	useEffect(() => {
@@ -47,5 +47,3 @@ const HotelDetails = () => {
 		</Fragment>
 	);
 };
-
-export default HotelDetails;

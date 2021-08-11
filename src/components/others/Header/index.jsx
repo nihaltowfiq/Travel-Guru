@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { UserContext, UserData } from '../../App';
-import logo from '../../assets/images/Logo/Logo2.png';
-import { signOutUser } from '../../libs/api/AuthManager';
+import { UserContext, UserData } from '../../../App';
+import logo from '../../../assets/images/Logo/Logo2.png';
+import { signOutUser } from '../../../libs/api/AuthManager';
 import './Header.css';
 
-const Header = () => {
+export const Header = () => {
 	const [user, setUser] = useContext(UserData);
 	const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 	const signOut = () => {
@@ -50,5 +50,3 @@ const Header = () => {
 		</Navbar>
 	);
 };
-
-export default Header;

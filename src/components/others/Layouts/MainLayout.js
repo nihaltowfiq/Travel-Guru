@@ -1,5 +1,5 @@
 import { Container } from 'react-bootstrap';
-import Header from '../../Header/Header';
+import { Header } from '../Header';
 import './MainLayout.css';
 
 export const MainLayout = ({ children }) => {

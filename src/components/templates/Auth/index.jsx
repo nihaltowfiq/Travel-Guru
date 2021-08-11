@@ -1,19 +1,19 @@
 import React, { useContext, useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import fbIcon from '../../assets/images/Icon/fb.png';
-import googleIcon from '../../assets/images/Icon/google.png';
-import './Login.css';
-import { UserContext, UserData } from '../../App';
+import fbIcon from '../../../assets/images/Icon/fb.png';
+import googleIcon from '../../../assets/images/Icon/google.png';
+import './Auth.css';
+import { UserContext, UserData } from '../../../App';
 import {
 	createUserAccount,
 	handleFbSignIn,
 	handleGoogleSignIn,
 	initializeLoginFramework,
 	signInUserAcount,
-} from '../../libs/api/AuthManager';
+} from '../../../libs/api/AuthManager';
 
-const SignUp = () => {
+export const Auth = () => {
 	const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 	const [user, setUser] = useContext(UserData);
 	const [newUser, setNewUser] = useState(true);
@@ -154,5 +154,3 @@ const SignUp = () => {
 		</Row>
 	);
 };
-
-export default SignUp;
