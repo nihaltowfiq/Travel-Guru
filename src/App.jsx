@@ -28,7 +28,7 @@ function App() {
 						<Route exact path="/" component={Home} />
 						<Route path="/booking/:placeName" component={Booking} />
 						<Route path="/login" component={Auth} />
-						<PrivateRoute path="/HotelDetails/:placeName">
+						<PrivateRoute path="/hotel-details/:placeName">
 							<HotelDetails />
 						</PrivateRoute>
 						<Route path="*" component={NotFound} />
