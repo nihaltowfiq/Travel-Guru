@@ -1,111 +1,28 @@
-import React, { useContext, useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import fbIcon from '../../../assets/images/Icon/fb.png';
 import googleIcon from '../../../assets/images/Icon/google.png';
 import './Auth.css';
-import { UserContext, UserData } from '../../../App';
-import {
-	createUserAccount,
-	handleFbSignIn,
-	handleGoogleSignIn,
-	initializeLoginFramework,
-	signInUserAcount,
-} from '../../../libs/api/AuthManager';
 
-export const Auth = () => {
-	const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-	const [user, setUser] = useContext(UserData);
-	const [newUser, setNewUser] = useState(true);
-
-	const history = useHistory();
-	const location = useLocation();
-	const { from } = location.state || { from: { pathname: '/' } };
-
-	initializeLoginFramework();
-
-	const googleSignIn = () => {
-		handleGoogleSignIn()
-			.then((res) => {
-				setUser(res);
-				setLoggedInUser(res);
-				history.replace(from);
-			})
-			.catch((error) => {
-				setUser(error);
-			});
-	};
-	const fbSignIn = () => {
-		handleFbSignIn()
-			.then((res) => {
-				setUser(res);
-				setLoggedInUser(res);
-				history.replace(from);
-			})
-			.catch((error) => {
-				setUser(error);
-			});
-	};
-	const handleBlur = (e) => {
-		let isFieldValid = true;
-		if (e.target.name === 'email') {
-			isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
-		}
-		if (e.target.name === 'password' || e.target.name === 'confirmPassword') {
-			const isPasswordValid = e.target.value.length > 6;
-			const hasPasswordNumber = /\d{1}/.test(e.target.value);
-			isFieldValid = isPasswordValid && hasPasswordNumber;
-		}
-		if (isFieldValid) {
-			const newUserInfo = { ...user };
-			newUserInfo[e.target.name] = e.target.value;
-			setUser(newUserInfo);
-		}
-	};
-	const handleSubmit = (e) => {
-		const { name, email, password, confirmPassword } = user;
-		if (newUser && name && email && password && confirmPassword && password === confirmPassword) {
-			createUserAccount(email, password)
-				.then((res) => {
-					setUser(res);
-					setLoggedInUser(res);
-					history.replace(from);
-				})
-				.catch((error) => {
-					setUser(error);
-				});
-		}
-		if (!newUser && email && password) {
-			signInUserAcount(email, password)
-				.then((res) => {
-					setUser(res);
-					setLoggedInUser(res);
-					history.replace(from);
-				})
-				.catch((error) => {
-					setUser(error);
-				});
-		}
-		e.preventDefault();
-	};
+export const Auth = ({ user, newUser, setUser, setNewUser, onGoogle, onFacebook, changeHandler, submitHandler }) => {
 	return (
 		<Row className="justify-content-md-center mt-3">
 			<Col md="auto">
-				<Form className="form-style">
+				<Form className="form-style" onSubmit={submitHandler}>
 					{newUser ? <h5>Create an acount</h5> : <h5>Login</h5>}
 					{newUser && (
-						<Form.Group onBlur={handleBlur} controlId="name">
+						<Form.Group onChange={changeHandler}>
 							<Form.Control required name="name" type="text" placeholder="Your Name" />
 						</Form.Group>
 					)}
-					<Form.Group onBlur={handleBlur} controlId="email">
+					<Form.Group onChange={changeHandler}>
 						<Form.Control required name="email" type="email" placeholder="Email" />
 					</Form.Group>
-					<Form.Group onBlur={handleBlur} controlId="password">
+					<Form.Group onChange={changeHandler}>
 						<Form.Control required name="password" type="password" placeholder="Password" />
 					</Form.Group>
 					{newUser && (
-						<Form.Group onBlur={handleBlur} controlId="confirmPassword">
+						<Form.Group onChange={changeHandler}>
 							<Form.Control
 								required
 								name="confirmPassword"
@@ -114,7 +31,7 @@ export const Auth = () => {
 							/>
 						</Form.Group>
 					)}
-					<Button onClick={handleSubmit} style={{ width: '100%' }} variant="warning" type="submit">
+					<Button style={{ width: '100%' }} variant="warning" type="submit">
 						{newUser ? <span>Create an acount</span> : <span>Login</span>}
 					</Button>
 					<br />
@@ -140,13 +57,13 @@ export const Auth = () => {
 
 				<hr style={{ backgroundColor: 'gray', height: '1px' }} />
 				<div style={{ textAlign: 'center' }}>
-					<Button onClick={googleSignIn} className="btn-style" variant="secondary">
+					<Button onClick={onGoogle} className="btn-style" variant="secondary">
 						{' '}
 						<img style={{ height: '25px' }} src={googleIcon} alt="" /> Sign in with Google
 					</Button>
 					<br />
 					<br />
-					<Button onClick={fbSignIn} className="btn-style" variant="secondary">
+					<Button onClick={onFacebook} className="btn-style" variant="secondary">
 						<img style={{ height: '25px' }} src={fbIcon} alt="" /> Sign in with Facebook
 					</Button>
 				</div>

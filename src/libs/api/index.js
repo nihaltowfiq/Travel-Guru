@@ -1,4 +1,4 @@
 import firebaseConfig from './firebase.config';
 
-export * from './AuthManager';
 export default firebaseConfig;
+export * from './AuthManager';
