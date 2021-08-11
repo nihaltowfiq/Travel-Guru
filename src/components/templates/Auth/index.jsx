@@ -37,15 +37,17 @@ export const Auth = ({ user, newUser, setUser, setNewUser, onGoogle, onFacebook,
 					<br />
 					<p style={{ textAlign: 'center', marginTop: '5px' }}>
 						{newUser ? <small>Already have an acount? </small> : <small>Don't have an acount? </small>}
-						<Link
+						<Button
+							variant="link"
+							className="text-warning"
+							style={{ boxShadow: 'none' }}
 							onClick={() => {
 								setNewUser(!newUser);
 								setUser({ error: '' });
 							}}
-							className="text-warning"
 						>
 							{!newUser ? <span>Create an acount</span> : <span>Login</span>}
-						</Link>
+						</Button>
 					</p>
 					<p style={{ color: 'red', textAlign: 'center' }}>{user.error}</p>
 					{user.success && (
@@ -58,7 +60,6 @@ export const Auth = ({ user, newUser, setUser, setNewUser, onGoogle, onFacebook,
 				<hr style={{ backgroundColor: 'gray', height: '1px' }} />
 				<div style={{ textAlign: 'center' }}>
 					<Button onClick={onGoogle} className="btn-style" variant="secondary">
-						{' '}
 						<img style={{ height: '25px' }} src={googleIcon} alt="" /> Sign in with Google
 					</Button>
 					<br />

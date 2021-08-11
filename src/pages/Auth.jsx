@@ -9,12 +9,11 @@ import {
 	initializeLoginFramework,
 	signInUserAcount,
 } from '../libs/api';
-// import { handleFbSignIn, handleGoogleSignIn, initializeLoginFramework } from '../libs/api';
 
 export const Auth = () => {
 	const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 	const [user, setUser] = useContext(UserData);
-	const [newUser, setNewUser] = useState(false);
+	const [newUser, setNewUser] = useState(true);
 
 	const history = useHistory();
 	const location = useLocation();
@@ -23,6 +22,7 @@ export const Auth = () => {
 	initializeLoginFramework();
 
 	const googleSignIn = () => {
+		console.log('clicked');
 		handleGoogleSignIn()
 			.then((res) => {
 				setUser(res);
@@ -93,7 +93,7 @@ export const Auth = () => {
 			setUser={setUser}
 			newUser={newUser}
 			setNewUser={setNewUser}
-			onGoole={googleSignIn}
+			onGoogle={googleSignIn}
 			onFacebook={facebookSignIn}
 			changeHandler={handleChange}
 			submitHandler={handleSubmit}
