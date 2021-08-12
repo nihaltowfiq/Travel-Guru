@@ -1,18 +1,16 @@
 import React, { useContext } from 'react';
 import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
-import { UserContext, UserData } from '../../../App';
+import { UserContext } from '../../../App';
 import logo from '../../../assets/images/Logo/Logo2.png';
 import { signOutUser } from '../../../libs/api/AuthManager';
 import './Header.css';
 
 export const Header = () => {
-	const [user, setUser] = useContext(UserData);
 	const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
 	const signOut = () => {
 		signOutUser().then((res) => {
-			setUser(res);
 			setLoggedInUser(res);
 		});
 	};
@@ -28,7 +26,7 @@ export const Header = () => {
 				<FormControl className="mr-sm-2 header-search" type="text" placeholder="Search your Destination" />
 			</Form>
 			<Nav className="ml-auto align-items-center mx-1">
-				<NavLink to="/home" className="mr-3 text-white font-weight-bold">
+				<NavLink to="/" className="mr-3 text-white font-weight-bold">
 					Home
 				</NavLink>
 				<NavLink to="" className="mr-3 text-white font-weight-bold">
@@ -38,9 +36,9 @@ export const Header = () => {
 					Pricing
 				</NavLink>
 			</Nav>
-			{user.isSignedIn ? (
+			{loggedInUser.isSignedIn ? (
 				<Button onClick={signOut} variant="warning">
-					Logout, {user.email}
+					Logout, {loggedInUser.email}
 				</Button>
 			) : (
 				<Link to="/login">

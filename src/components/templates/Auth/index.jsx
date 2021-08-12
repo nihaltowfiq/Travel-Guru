@@ -1,14 +1,13 @@
 import { Button, Col, Form, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import fbIcon from '../../../assets/images/Icon/fb.png';
 import googleIcon from '../../../assets/images/Icon/google.png';
 import './Auth.css';
 
-export const Auth = ({ user, newUser, setUser, setNewUser, onGoogle, onFacebook, changeHandler, submitHandler }) => {
+export const Auth = ({ newUser, setNewUser, onGoogle, onFacebook, changeHandler, submitHandler }) => {
 	return (
 		<Row className="justify-content-md-center mt-3">
 			<Col md="auto">
-				<Form className="form-style" onSubmit={submitHandler}>
+				<Form className="form-style">
 					{newUser ? <h5>Create an acount</h5> : <h5>Login</h5>}
 					{newUser && (
 						<Form.Group onChange={changeHandler}>
@@ -31,7 +30,7 @@ export const Auth = ({ user, newUser, setUser, setNewUser, onGoogle, onFacebook,
 							/>
 						</Form.Group>
 					)}
-					<Button style={{ width: '100%' }} variant="warning" type="submit">
+					<Button type="submit" variant="warning" style={{ width: '100%' }} onClick={submitHandler}>
 						{newUser ? <span>Create an acount</span> : <span>Login</span>}
 					</Button>
 					<br />
@@ -41,20 +40,17 @@ export const Auth = ({ user, newUser, setUser, setNewUser, onGoogle, onFacebook,
 							variant="link"
 							className="text-warning"
 							style={{ boxShadow: 'none' }}
-							onClick={() => {
-								setNewUser(!newUser);
-								setUser({ error: '' });
-							}}
+							onClick={() => setNewUser(!newUser)}
 						>
 							{!newUser ? <span>Create an acount</span> : <span>Login</span>}
 						</Button>
 					</p>
-					<p style={{ color: 'red', textAlign: 'center' }}>{user.error}</p>
+					{/* <p style={{ color: 'red', textAlign: 'center' }}>{user.error}</p>
 					{user.success && (
 						<p style={{ color: 'white', textAlign: 'center', fontWeight: 'bold' }}>
 							User Created Successfully
 						</p>
-					)}
+					)} */}
 				</Form>
 
 				<hr style={{ backgroundColor: 'gray', height: '1px' }} />

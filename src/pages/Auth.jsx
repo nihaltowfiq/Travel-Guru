@@ -10,10 +10,18 @@ import {
 	signInUserAcount,
 } from '../libs/api';
 
+const initialUserValue = {
+	isSignedIn: false,
+	name: '',
+	email: '',
+	password: '',
+	confirmPassword: '',
+};
+
 export const Auth = () => {
 	const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-	const [user, setUser] = useContext(UserData);
-	const [newUser, setNewUser] = useState(true);
+	const [values, setValues] = useState(initialUserValue);
+	const [newUser, setNewUser] = useState(false);
 
 	const history = useHistory();
 	const location = useLocation();
@@ -22,75 +30,64 @@ export const Auth = () => {
 	initializeLoginFramework();
 
 	const googleSignIn = () => {
-		console.log('clicked');
-		handleGoogleSignIn()
-			.then((res) => {
-				setUser(res);
-				setLoggedInUser(res);
-				history.replace(from);
-			})
-			.catch((error) => {
-				setUser(error);
-			});
+		handleGoogleSignIn().then((res) => {
+			console.log(res);
+			setLoggedInUser(res);
+			// history.replace(from);
+		});
+		// .catch((error) => {
+		// 	setUser(error);
+		// });
 	};
 	const facebookSignIn = () => {
-		handleFbSignIn()
-			.then((res) => {
-				setUser(res);
-				setLoggedInUser(res);
-				history.replace(from);
-			})
-			.catch((error) => {
-				setUser(error);
-			});
+		handleFbSignIn().then((res) => {
+			setLoggedInUser(res);
+			history.replace(from);
+		});
+		// .catch((error) => {
+		// 	setUser(error);
+		// });
 	};
 	const handleChange = (e) => {
+		const { name, value } = e.target;
 		let isFieldValid = true;
-		if (e.target.name === 'email') {
-			isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
+		if (name === 'email') {
+			isFieldValid = /\S+@\S+\.\S+/.test(value);
 		}
-		if (e.target.name === 'password' || e.target.name === 'confirmPassword') {
-			const isPasswordValid = e.target.value.length > 6;
+		if (name === 'password' || name === 'confirmPassword') {
+			const isPasswordValid = value.length > 6;
 			const hasPasswordNumber = /\d{1}/.test(e.target.value);
 			isFieldValid = isPasswordValid && hasPasswordNumber;
 		}
-		if (isFieldValid) {
-			const newUserInfo = { ...user };
-			newUserInfo[e.target.name] = e.target.value;
-			setUser(newUserInfo);
-		}
+		if (isFieldValid) setValues((prevState) => ({ ...prevState, [name]: value }));
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const { name, email, password, confirmPassword } = user;
+		const { name, email, password, confirmPassword } = values;
 		if (newUser && name && email && password && confirmPassword && password === confirmPassword) {
-			createUserAccount(email, password)
-				.then((res) => {
-					setUser(res);
-					setLoggedInUser(res);
-					history.replace(from);
-				})
-				.catch((error) => {
-					setUser(error);
-				});
+			createUserAccount(email, password).then(({ email, name }) => {
+				console.log(email, name);
+				// setLoggedInUser(res);
+				// history.replace(from);
+			});
+			// .catch((error) => {
+			// 	setUser(error);
+			// });
 		}
 		if (!newUser && email && password) {
-			signInUserAcount(email, password)
-				.then((res) => {
-					setUser(res);
-					setLoggedInUser(res);
-					history.replace(from);
-				})
-				.catch((error) => {
-					setUser(error);
-				});
+			signInUserAcount(email, password).then((res) => {
+				console.log(res);
+				setLoggedInUser(res);
+				// history.replace(from);
+			});
+			// .catch((error) => {
+			// 	setUser(error);
+			// });
 		}
 	};
 
 	return (
 		<AuthComponent
-			user={user}
-			setUser={setUser}
 			newUser={newUser}
 			setNewUser={setNewUser}
 			onGoogle={googleSignIn}
