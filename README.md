@@ -6,7 +6,6 @@ This project live link is : https://travel-guru-practice.web.app/
 
 -   React
 -   React-Router
--   React-Bootstrap
 -   Context-API
 -   Firebase-Auth
--   React Hooks
+-   Bootstrap
