@@ -1,9 +1,8 @@
-import React, { useContext } from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { UserContext } from '../../App';
+import { useAuthCtx } from '../../store';
 
 export const PrivateRoute = ({ children, ...rest }) => {
-	const [loggedInUser] = useContext(UserContext);
+	const { loggedInUser } = useAuthCtx();
 
 	return (
 		<Route

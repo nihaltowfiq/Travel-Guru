@@ -1,6 +1,5 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
-import { UserContext, UserData } from '../App';
 import { Auth as AuthComponent } from '../components/templates';
 import {
 	createUserAccount,
@@ -9,6 +8,7 @@ import {
 	initializeLoginFramework,
 	signInUserAcount,
 } from '../libs/api';
+import { useAuthCtx } from '../store';
 
 const initialUserValue = {
 	isSignedIn: false,
@@ -19,9 +19,9 @@ const initialUserValue = {
 };
 
 export const Auth = () => {
-	const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 	const [values, setValues] = useState(initialUserValue);
 	const [newUser, setNewUser] = useState(false);
+	const { loggedInUser, onLogin } = useAuthCtx();
 
 	const history = useHistory();
 	const location = useLocation();
@@ -31,8 +31,7 @@ export const Auth = () => {
 
 	const googleSignIn = () => {
 		handleGoogleSignIn().then((res) => {
-			console.log(res);
-			setLoggedInUser(res);
+			onLogin(res);
 			// history.replace(from);
 		});
 		// .catch((error) => {
@@ -41,7 +40,7 @@ export const Auth = () => {
 	};
 	const facebookSignIn = () => {
 		handleFbSignIn().then((res) => {
-			setLoggedInUser(res);
+			onLogin(res);
 			history.replace(from);
 		});
 		// .catch((error) => {
@@ -77,7 +76,7 @@ export const Auth = () => {
 		if (!newUser && email && password) {
 			signInUserAcount(email, password).then((res) => {
 				console.log(res);
-				setLoggedInUser(res);
+				// setLoggedInUser(res);
 				// history.replace(from);
 			});
 			// .catch((error) => {

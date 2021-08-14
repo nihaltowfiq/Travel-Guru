@@ -1,14 +1,12 @@
-import React, { useContext } from 'react';
 import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
-import { UserContext } from '../../../App';
 import logo from '../../../assets/images/Logo/Logo2.png';
 import { signOutUser } from '../../../libs/api/AuthManager';
+import { useAuthCtx } from '../../../store';
 import './Header.css';
 
 export const Header = () => {
-	const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-
+	const { loggedInUser, setLoggedInUser } = useAuthCtx();
 	const signOut = () => {
 		signOutUser().then((res) => {
 			setLoggedInUser(res);
