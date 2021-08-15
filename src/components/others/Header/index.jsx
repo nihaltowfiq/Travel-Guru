@@ -1,17 +1,11 @@
 import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../../assets/images/Logo/Logo2.png';
-import { signOutUser } from '../../../libs/api/AuthManager';
 import { useAuthCtx } from '../../../store';
 import './Header.css';
 
 export const Header = () => {
-	const { loggedInUser, setLoggedInUser } = useAuthCtx();
-	const signOut = () => {
-		signOutUser().then((res) => {
-			setLoggedInUser(res);
-		});
-	};
+	const { loggedInUser, onLogout } = useAuthCtx();
 
 	return (
 		<Navbar className="navbar px-0">
@@ -35,8 +29,8 @@ export const Header = () => {
 				</NavLink>
 			</Nav>
 			{loggedInUser.isSignedIn ? (
-				<Button onClick={signOut} variant="warning">
-					Logout, {loggedInUser.email}
+				<Button onClick={onLogout} variant="warning">
+					Logout, {loggedInUser.name ? loggedInUser.name : loggedInUser.email}
 				</Button>
 			) : (
 				<Link to="/login">

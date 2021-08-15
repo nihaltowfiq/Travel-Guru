@@ -2,13 +2,14 @@ import * as firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConfig from './firebase.config';
 
-export const initializeLoginFramework = () => {
+export const initializeAuthFramework = () => {
 	if (firebase.apps.length === 0) {
 		firebase.initializeApp(firebaseConfig);
 	}
 };
 
 export const createUserAccount = (email, password) => {
+	console.log({ email });
 	return firebase
 		.auth()
 		.createUserWithEmailAndPassword(email, password)
@@ -80,23 +81,4 @@ export const handleFbSignIn = () => {
 			newUserInfo.error = errorMessage;
 			return newUserInfo;
 		});
-};
-
-export const signOutUser = () => {
-	return firebase
-		.auth()
-		.signOut()
-		.then((res) => {
-			const signedOutUser = {
-				isSignedIn: false,
-				name: '',
-				email: '',
-				password: '',
-				confirmPassword: '',
-				error: '',
-				success: false,
-			};
-			return signedOutUser;
-		})
-		.catch((error) => {});
 };

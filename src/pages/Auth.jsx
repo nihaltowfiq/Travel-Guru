@@ -5,7 +5,7 @@ import {
 	createUserAccount,
 	handleFbSignIn,
 	handleGoogleSignIn,
-	initializeLoginFramework,
+	initializeAuthFramework,
 	signInUserAcount,
 } from '../libs/api';
 import { useAuthCtx } from '../store';
@@ -20,32 +20,34 @@ const initialUserValue = {
 
 export const Auth = () => {
 	const [values, setValues] = useState(initialUserValue);
+	const [errMsg, setErrMsg] = useState(null);
 	const [newUser, setNewUser] = useState(false);
-	const { loggedInUser, onLogin } = useAuthCtx();
+	const { onLogin } = useAuthCtx();
+
+	console.log({ errMsg });
 
 	const history = useHistory();
 	const location = useLocation();
 	const { from } = location.state || { from: { pathname: '/' } };
-
-	initializeLoginFramework();
+	initializeAuthFramework();
 
 	const googleSignIn = () => {
-		handleGoogleSignIn().then((res) => {
-			onLogin(res);
-			// history.replace(from);
-		});
-		// .catch((error) => {
-		// 	setUser(error);
-		// });
+		handleGoogleSignIn()
+			.then((res) => {
+				setErrMsg(null);
+				onLogin(res);
+				history.replace(from);
+			})
+			.catch((error) => setErrMsg(error));
 	};
 	const facebookSignIn = () => {
-		handleFbSignIn().then((res) => {
-			onLogin(res);
-			history.replace(from);
-		});
-		// .catch((error) => {
-		// 	setUser(error);
-		// });
+		handleFbSignIn()
+			.then((res) => {
+				setErrMsg(null);
+				onLogin(res);
+				history.replace(from);
+			})
+			.catch((error) => setErrMsg(error));
 	};
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -64,24 +66,25 @@ export const Auth = () => {
 		e.preventDefault();
 		const { name, email, password, confirmPassword } = values;
 		if (newUser && name && email && password && confirmPassword && password === confirmPassword) {
-			createUserAccount(email, password).then(({ email, name }) => {
-				console.log(email, name);
-				// setLoggedInUser(res);
-				// history.replace(from);
-			});
-			// .catch((error) => {
-			// 	setUser(error);
-			// });
+			createUserAccount(email, password)
+				.then((res) => {
+					setErrMsg(null);
+					onLogin(res);
+					history.replace(from);
+				})
+				.catch((error) => setErrMsg(error));
 		}
 		if (!newUser && email && password) {
-			signInUserAcount(email, password).then((res) => {
-				console.log(res);
-				// setLoggedInUser(res);
-				// history.replace(from);
-			});
-			// .catch((error) => {
-			// 	setUser(error);
-			// });
+			signInUserAcount(email, password)
+				.then((res) => {
+					setErrMsg(null);
+					console.log(res);
+					// if (isSignedIn) {
+					// 	onLogin({ isSignedIn, email, name });
+					// 	history.replace(from);
+					// }
+				})
+				.catch((error) => setErrMsg(error));
 		}
 	};
 
