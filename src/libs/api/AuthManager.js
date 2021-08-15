@@ -9,23 +9,18 @@ export const initializeAuthFramework = () => {
 };
 
 export const createUserAccount = (email, password) => {
-	console.log({ email });
 	return firebase
 		.auth()
 		.createUserWithEmailAndPassword(email, password)
 		.then((res) => {
-			const newUserInfo = res.user;
-			newUserInfo.isSignedIn = true;
-			newUserInfo.error = '';
-			newUserInfo.success = true;
-			return newUserInfo;
+			const { displayName, email } = res.user;
+			const newUserInfo = { isSignedIn: true, name: displayName, email };
+			const response = { success: true, data: newUserInfo, message: null };
+			return response;
 		})
-		.catch((error) => {
-			const errorMessage = error.message;
-			const newUserInfo = {};
-			newUserInfo.error = errorMessage;
-			newUserInfo.success = false;
-			return newUserInfo;
+		.catch((err) => {
+			const response = { success: false, data: null, message: err.message };
+			return response;
 		});
 };
 
@@ -34,16 +29,14 @@ export const signInUserAcount = (email, password) => {
 		.auth()
 		.signInWithEmailAndPassword(email, password)
 		.then((res) => {
-			const newUserInfo = res.user;
-			newUserInfo.isSignedIn = true;
-			newUserInfo.error = '';
-			return newUserInfo;
+			const { displayName, email } = res.user;
+			const signedInUser = { isSignedIn: true, name: displayName, email };
+			const response = { success: true, data: signedInUser, message: null };
+			return response;
 		})
-		.catch((error) => {
-			const errorMessage = error.message;
-			const newUserInfo = {};
-			newUserInfo.error = errorMessage;
-			return newUserInfo;
+		.catch((err) => {
+			const response = { success: false, data: null, message: err.message };
+			return response;
 		});
 };
 
@@ -55,13 +48,12 @@ export const handleGoogleSignIn = () => {
 		.then((result) => {
 			const { displayName, email } = result.user;
 			const signedInUser = { isSignedIn: true, name: displayName, email };
-			return signedInUser;
+			const response = { success: true, data: signedInUser, message: null };
+			return response;
 		})
-		.catch((error) => {
-			const errorMessage = error.message;
-			const newUserInfo = {};
-			newUserInfo.error = errorMessage;
-			return newUserInfo;
+		.catch((err) => {
+			const response = { success: false, data: null, message: err.message };
+			return response;
 		});
 };
 
@@ -73,12 +65,11 @@ export const handleFbSignIn = () => {
 		.then((result) => {
 			const { displayName, email } = result.user;
 			const signedInUser = { isSignedIn: true, name: displayName, email };
-			return signedInUser;
+			const response = { success: true, data: signedInUser, message: null };
+			return response;
 		})
-		.catch((error) => {
-			const errorMessage = error.message;
-			const newUserInfo = {};
-			newUserInfo.error = errorMessage;
-			return newUserInfo;
+		.catch((err) => {
+			const response = { success: false, data: null, message: err.message };
+			return response;
 		});
 };

@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 
-const initialValues = { loggedInUser: {}, onLogin: (payload) => {}, onLogout: () => {}, setLoggedInUser: (any) => {} };
+const initialValues = { loggedInUser: {}, onLogin: (payload) => {}, onLogout: () => {} };
 
 const AuthCtx = createContext(initialValues);
 
@@ -25,7 +25,7 @@ const AuthCtxProvider = ({ children }) => {
 		setLoggedInUser({});
 	};
 
-	return <AuthCtx.Provider value={{ loggedInUser, onLogin, onLogout, setLoggedInUser }}>{children}</AuthCtx.Provider>;
+	return <AuthCtx.Provider value={{ loggedInUser, onLogin, onLogout }}>{children}</AuthCtx.Provider>;
 };
 
 export default AuthCtxProvider;
