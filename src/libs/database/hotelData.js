@@ -1,4 +1,4 @@
-const hotelData = [
+export const hotelData = [
 	{
 		id: 1,
 		name: 'Teena Greenier',

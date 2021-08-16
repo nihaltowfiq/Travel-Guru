@@ -13,3 +13,9 @@
 .header-search::placeholder {
 	color: white;
 }
+.navbar-nav a:hover {
+	text-decoration: none;
+}
+.navbar-nav .active {
+	border-bottom: 2px solid var(--warning);
+}

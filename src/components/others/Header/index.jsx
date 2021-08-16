@@ -18,15 +18,15 @@ export const Header = () => {
 				<FormControl className="mr-sm-2 header-search" type="text" placeholder="Search your Destination" />
 			</Form>
 			<Nav className="ml-auto align-items-center mx-1">
-				<NavLink to="/" className="mr-3 text-white font-weight-bold">
+				<NavLink exact to="/" activeClassName="active" className="mr-3 text-white font-weight-bold">
 					Home
 				</NavLink>
-				<NavLink to="" className="mr-3 text-white font-weight-bold">
+				{/* <NavLink to="" activeClassName="active" className="mr-3 text-white font-weight-bold">
 					Features
 				</NavLink>
-				<NavLink to="" className="mr-3 text-white font-weight-bold">
+				<NavLink to="" activeClassName="active" className="mr-3 text-white font-weight-bold">
 					Pricing
-				</NavLink>
+				</NavLink> */}
 			</Nav>
 			{loggedInUser.isSignedIn ? (
 				<Button onClick={onLogout} variant="warning">
