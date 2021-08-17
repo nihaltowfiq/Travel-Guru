@@ -6,8 +6,8 @@ export const hotelData = [
 		detail: '4 guest 2 bedrooms 2 beds 2 baths with air conditioning kitchen',
 		price: 37,
 		ratings: 4.9,
-		img: 'https://i.ibb.co/DwDJCph/Hotel1.png',
-		icon: 'https://i.ibb.co/KF4Dcsy/star.png',
+		img: '/images/hotel1.png',
+		icon: '/images/Icon/star.png',
 	},
 	{
 		id: 2,
@@ -16,8 +16,8 @@ export const hotelData = [
 		detail: '4 guest 2 bedrooms 2 beds 2 baths with air conditioning kitchen',
 		price: 52,
 		ratings: 4.3,
-		img: 'https://i.ibb.co/wyW7Nbj/Hotel2.png',
-		icon: 'https://i.ibb.co/KF4Dcsy/star.png',
+		img: '/images/hotel2.png',
+		icon: '/images/Icon/star.png',
 	},
 	{
 		id: 3,
@@ -26,7 +26,7 @@ export const hotelData = [
 		detail: '4 guest 2 bedrooms 2 beds 2 baths with air conditioning kitchen',
 		price: 43,
 		ratings: 4.5,
-		img: 'https://i.ibb.co/Qrk1xRQ/Hotel3.png',
-		icon: 'https://i.ibb.co/KF4Dcsy/star.png',
+		img: '/images/hotel3.png',
+		icon: '/images/Icon/star.png',
 	},
 ];

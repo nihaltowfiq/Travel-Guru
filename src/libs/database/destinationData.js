@@ -4,7 +4,7 @@ export const destinationData = [
 		name: 'Sajek',
 		shortDescription:
 			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, exercitationem dolorem vel dignissimos quibusdam soluta facere? Illo dolores molestiae dicta?',
-		img: 'https://i.ibb.co/5srj0qY/Sajek.png',
+		img: '/images/sajek.png',
 		longDescription:
 			'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eaque maiores quam repudiandae minus impedit quisquam sint quibusdam, quod possimus totam eius voluptatibus corrupti saepe. Quod saepe nemo, et harum voluptate possimus neque doloribus repellat ipsam tenetur dolorum necessitatibus est? Illum eius repellat quisquam minus expedita iure odit dolor dolores?',
 	},
@@ -13,7 +13,7 @@ export const destinationData = [
 		name: 'Sreemongol',
 		shortDescription:
 			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, exercitationem dolorem vel dignissimos quibusdam soluta facere?',
-		img: 'https://i.ibb.co/37s7Ftz/Sreemongol.png',
+		img: '/images/sreemongol.png',
 		longDescription:
 			'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eaque maiores quam repudiandae minus impedit quisquam sint quibusdam, quod possimus totam eius voluptatibus corrupti saepe. Quod saepe nemo, et harum voluptate possimus neque doloribus repellat ipsam tenetur dolorum necessitatibus est? Illum eius repellat quisquam minus expedita iure odit dolor dolores?',
 	},
@@ -22,7 +22,7 @@ export const destinationData = [
 		name: 'Sundarban',
 		shortDescription:
 			'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, exercitationem dolorem vel dignissimos quibusdam soluta facere? Illo dolores molestiae dicta? ipsum dolor sit amet, consectetur adipisicing elit.',
-		img: 'https://i.ibb.co/t2B0GMW/Sundarban.png',
+		img: '/images/sundarban.png',
 		longDescription:
 			'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Adipisci eaque maiores quam repudiandae minus impedit quisquam sint quibusdam, quod possimus totam eius voluptatibus corrupti saepe. Quod saepe nemo, et harum voluptate possimus neque doloribus repellat ipsam tenetur dolorum necessitatibus est? Illum eius repellat quisquam minus expedita iure odit dolor dolores?',
 	},

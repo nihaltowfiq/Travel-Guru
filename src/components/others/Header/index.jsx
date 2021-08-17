@@ -1,6 +1,5 @@
 import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
-import logo from 'assets/images/Logo/Logo2.png';
 import { useAuthCtx } from 'store';
 import './Header.css';
 
@@ -11,7 +10,7 @@ export const Header = () => {
 		<Navbar className="navbar px-0">
 			<Link to="/">
 				<Navbar.Brand className="pr-5">
-					<img src={logo} alt="" />
+					<img src="/images/Logo/Logo2.png" alt="" />
 				</Navbar.Brand>
 			</Link>
 			<Form inline>
