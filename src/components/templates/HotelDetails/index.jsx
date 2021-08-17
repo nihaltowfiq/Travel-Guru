@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { hotelData } from 'libs/database';
@@ -6,17 +6,13 @@ import './HotelDetail.css';
 
 export const HotelDetails = () => {
 	const { placeName } = useParams();
-	const [hotels, setHotel] = useState([]);
-	useEffect(() => {
-		setHotel(hotelData);
-	}, []);
 
 	return (
 		<Fragment>
 			<h4 style={{ textAlign: 'center' }}>Hotel Details for {placeName}</h4>
 			<Row>
-				<Col className="hotel-style">
-					{hotels.map((hotel) => (
+				<Col md={6} className="hotel-style">
+					{hotelData.map((hotel) => (
 						<Row key={hotel.id} className="hotel-card">
 							<Col>
 								<img className="room-img" src={hotel.img} alt="" />
@@ -42,7 +38,7 @@ export const HotelDetails = () => {
 						</Row>
 					))}
 				</Col>
-				<Col></Col>
+				{/* <Col md={6}>GOOGLE MAP</Col> */}
 			</Row>
 		</Fragment>
 	);
