@@ -1,7 +1,7 @@
 import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../../../assets/images/Logo/Logo2.png';
-import { useAuthCtx } from '../../../store';
+import logo from 'assets/images/Logo/Logo2.png';
+import { useAuthCtx } from 'store';
 import './Header.css';
 
 export const Header = () => {

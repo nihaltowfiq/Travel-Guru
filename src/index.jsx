@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AuthCtxProvider from './store';
+import AuthCtxProvider from 'store';
 
 ReactDOM.render(
 	<AuthCtxProvider>

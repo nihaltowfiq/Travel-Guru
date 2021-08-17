@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { Badge, Col, Row } from 'react-bootstrap';
 import { useHistory, useLocation } from 'react-router-dom';
-import { Auth as AuthComponent } from '../components/templates';
+import { Auth as AuthComponent } from 'components/templates';
 import {
 	createUserAccount,
 	handleFbSignIn,
 	handleGoogleSignIn,
 	initializeAuthFramework,
 	signInUserAcount,
-} from '../libs/api';
-import { useAuthCtx } from '../store';
+} from 'libs/api';
+import { useAuthCtx } from 'store';
 
 const initialUserValue = {
 	isSignedIn: false,

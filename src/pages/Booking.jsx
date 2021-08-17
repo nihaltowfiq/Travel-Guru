@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { Booking as BookingComponent } from '../components/templates';
-import { destinationData } from '../libs/database';
+import { Booking as BookingComponent } from 'components/templates';
+import { destinationData } from 'libs/database';
 
 const initialValues = { origin: '', destination: '', startDate: '', endDate: '' };
 

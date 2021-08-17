@@ -1,7 +1,7 @@
 import { Fragment, useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import hotelData from '../../../libs/database/hotelData';
+import { hotelData } from 'libs/database';
 import './HotelDetail.css';
 
 export const HotelDetails = () => {

@@ -30,5 +30,3 @@ export const hotelData = [
 		icon: 'https://i.ibb.co/KF4Dcsy/star.png',
 	},
 ];
-
-export default hotelData;

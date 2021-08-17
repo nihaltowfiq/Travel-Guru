@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import fbIcon from '../../../assets/images/Icon/fb.png';
-import googleIcon from '../../../assets/images/Icon/google.png';
+import fbIcon from 'assets/images/Icon/fb.png';
+import googleIcon from 'assets/images/Icon/google.png';
 import './Auth.css';
 
 export const Auth = ({ newUser, setNewUser, onGoogle, onFacebook, changeHandler, submitHandler }) => {
