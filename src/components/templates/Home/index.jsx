@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import { Button, Col, Row } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 import './Home.css';
 
 export const Home = ({ data }) => {
