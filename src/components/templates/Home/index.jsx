@@ -11,8 +11,8 @@ export const Home = ({ data }) => {
 	};
 
 	return (
-		<Row className="home-info mt-5 pt-5">
-			<Col className="card-detail" lg={4}>
+		<Row className="mt-5 pt-5">
+			<Col className="place_detail" lg={4}>
 				<h2>{showPlace.name.toUpperCase()}</h2>
 				<p>{showPlace.shortDescription}</p>
 				<Button onClick={() => handleBooking(showPlace.name)} variant="warning">
@@ -25,7 +25,7 @@ export const Home = ({ data }) => {
 						<Col sm={3} key={place.id} className="ml-5">
 							<div
 								onClick={() => setShowPlace(place)}
-								className={`card-style ${showPlace.id === place.id ? 'active' : ''}`}
+								className={`place_card ${showPlace.id === place.id ? 'activePlace' : ''}`}
 							>
 								<h3>{place.name}</h3>
 								<img src={place.img} alt="" />
