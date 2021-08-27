@@ -2,12 +2,12 @@ import { Container } from 'react-bootstrap';
 import { Header } from '../Header';
 import './MainLayout.css';
 
-export const MainLayout = ({ children }) => {
+export const MainLayout = ({ isCover = false, children }) => {
 	return (
-		<section className="Wrapper">
+		<section className={`Wrapper ${isCover ? 'Background_Img Dark_Bg' : ''}`}>
 			<div className="Inner">
 				<Container>
-					<Header />
+					<Header isDark={isCover} />
 					<main>{children}</main>
 				</Container>
 			</div>

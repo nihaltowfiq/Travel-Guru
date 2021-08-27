@@ -1,6 +1,4 @@
-import { useState } from 'react';
-import { Badge, Col, Row } from 'react-bootstrap';
-import { useHistory, useLocation } from 'react-router-dom';
+import { MainLayout } from 'components/others';
 import { Auth as AuthComponent } from 'components/templates';
 import {
 	createUserAccount,
@@ -9,6 +7,9 @@ import {
 	initializeAuthFramework,
 	signInUserAcount,
 } from 'libs/api';
+import { useState } from 'react';
+import { Badge, Col, Row } from 'react-bootstrap';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useAuthCtx } from 'store';
 
 const initialUserValue = {
@@ -86,22 +87,24 @@ export const Auth = () => {
 	};
 
 	return (
-		<Row className="justify-content-center mt-3">
-			<Col>
-				{errMsg && (
-					<p className="text-danger text-center">
-						<Badge variant="danger">{errMsg}</Badge>
-					</p>
-				)}
-				<AuthComponent
-					newUser={newUser}
-					setNewUser={setNewUser}
-					onGoogle={googleSignIn}
-					onFacebook={facebookSignIn}
-					changeHandler={handleChange}
-					submitHandler={handleSubmit}
-				/>
-			</Col>
-		</Row>
+		<MainLayout>
+			<Row className="justify-content-center mt-3">
+				<Col>
+					{errMsg && (
+						<p className="text-danger text-center">
+							<Badge variant="danger">{errMsg}</Badge>
+						</p>
+					)}
+					<AuthComponent
+						newUser={newUser}
+						setNewUser={setNewUser}
+						onGoogle={googleSignIn}
+						onFacebook={facebookSignIn}
+						changeHandler={handleChange}
+						submitHandler={handleSubmit}
+					/>
+				</Col>
+			</Row>
+		</MainLayout>
 	);
 };

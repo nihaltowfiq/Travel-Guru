@@ -1,7 +1,6 @@
 .Wrapper {
 	min-height: 100vh;
 	position: relative;
-	background: #363535;
 	overflow: hidden;
 }
 
@@ -11,8 +10,12 @@
 	color: white;
 }
 
-.Wrapper::before {
-	content: ' ';
+.Dark_Bg {
+	background: #363535 !important;
+}
+
+.Background_Img::before {
+	content: '';
 	display: block;
 	position: absolute;
 	left: 0;

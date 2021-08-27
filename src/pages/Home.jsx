@@ -1,8 +1,13 @@
+import { MainLayout } from 'components/others';
 import { Home as HomeComponent } from 'components/templates';
 import { destinationData } from 'libs/database/destinationData';
 
 export const Home = () => {
 	const places = destinationData;
 
-	return <HomeComponent data={places} />;
+	return (
+		<MainLayout isCover>
+			<HomeComponent data={places} />
+		</MainLayout>
+	);
 };

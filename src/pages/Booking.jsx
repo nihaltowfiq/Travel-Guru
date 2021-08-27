@@ -1,8 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { MainLayout } from 'components/others';
 import { Booking as BookingComponent } from 'components/templates';
 import { destinationData } from 'libs/database';
+import { useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 
 const initialValues = { origin: '', destination: '', startDate: '', endDate: '' };
 
@@ -29,17 +30,19 @@ export const Booking = () => {
 	};
 
 	return (
-		<BookingComponent
-			data={data}
-			values={values}
-			error={error}
-			changeHandler={(e) =>
-				setValues((prevState) => {
-					const { name, value } = e.target;
-					return { ...prevState, [name]: value };
-				})
-			}
-			submitHandler={handleSubmit}
-		/>
+		<MainLayout isCover>
+			<BookingComponent
+				data={data}
+				values={values}
+				error={error}
+				changeHandler={(e) =>
+					setValues((prevState) => {
+						const { name, value } = e.target;
+						return { ...prevState, [name]: value };
+					})
+				}
+				submitHandler={handleSubmit}
+			/>
+		</MainLayout>
 	);
 };

@@ -1,25 +1,28 @@
 import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useAuthCtx } from 'store';
+import { MainLink } from '../MainLink';
 import './Header.css';
 
-export const Header = () => {
+export const Header = ({ isDark }) => {
+	const history = useHistory();
 	const { loggedInUser, onLogout } = useAuthCtx();
+	const logo = isDark ? '/images/Logo/light-logo.png' : '/images/Logo/dark-logo.png';
 
 	return (
 		<Navbar className="navbar px-0">
 			<Link to="/">
 				<Navbar.Brand className="pr-5">
-					<img src="/images/Logo/Logo2.png" alt="" />
+					<img src={logo} alt="" />
 				</Navbar.Brand>
 			</Link>
 			<Form inline>
-				<FormControl className="mr-sm-2 header-search" type="text" placeholder="Search your Destination" />
+				<FormControl type="text" className="Search" placeholder="Search your Destination" />
 			</Form>
 			<Nav className="ml-auto align-items-center mx-1">
-				<NavLink exact to="/" activeClassName="active" className="mr-3 text-white font-weight-bold">
+				<MainLink to="/" isDark={isDark} className="Link_Style">
 					Home
-				</NavLink>
+				</MainLink>
 				{/* <NavLink to="" activeClassName="active" className="mr-3 text-white font-weight-bold">
 					Features
 				</NavLink>
@@ -28,13 +31,13 @@ export const Header = () => {
 				</NavLink> */}
 			</Nav>
 			{loggedInUser.isSignedIn ? (
-				<Button onClick={onLogout} variant="warning">
+				<Button variant="warning" onClick={onLogout}>
 					Logout, {loggedInUser.name ? loggedInUser.name : loggedInUser.email}
 				</Button>
 			) : (
-				<Link to="/login">
-					<Button variant="warning">Login</Button>
-				</Link>
+				<Button variant="warning" className="font-weight-bold" onClick={() => history.push('/login')}>
+					Login
+				</Button>
 			)}
 		</Navbar>
 	);
