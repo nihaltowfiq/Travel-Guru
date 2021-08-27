@@ -30,9 +30,9 @@ export const Header = ({ isDark, showSearch }) => {
 					Pricing
 				</NavLink> */}
 			</Nav>
-			{loggedInUser.isSignedIn ? (
+			{loggedInUser?.isSignedIn ? (
 				<Button variant="warning" onClick={onLogout}>
-					Logout, {loggedInUser.name ? loggedInUser.name : loggedInUser.email}
+					Logout, {loggedInUser?.name ? loggedInUser.name : loggedInUser.email}
 				</Button>
 			) : (
 				<Button variant="warning" className="font-weight-bold" onClick={() => history.push('/login')}>

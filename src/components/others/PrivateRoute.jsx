@@ -1,13 +1,15 @@
 import { Redirect, Route } from 'react-router-dom';
+import { useAuthCtx } from 'store/AuthContext';
 
 export const PrivateRoute = ({ children, ...rest }) => {
-	const user = JSON.parse(localStorage.getItem('user'));
+	const { loggedInUser } = useAuthCtx();
+	const user = localStorage.getItem('user');
 
 	return (
 		<Route
 			{...rest}
 			render={({ location }) =>
-				user?.isSignedIn ? (
+				user || loggedInUser ? (
 					children
 				) : (
 					<Redirect

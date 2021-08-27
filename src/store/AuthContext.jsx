@@ -9,7 +9,7 @@ export const useAuthCtx = () => {
 };
 
 const AuthCtxProvider = ({ children }) => {
-	const [loggedInUser, setLoggedInUser] = useState({});
+	const [loggedInUser, setLoggedInUser] = useState(null);
 
 	useEffect(() => {
 		const user = localStorage.getItem('user');
@@ -22,7 +22,7 @@ const AuthCtxProvider = ({ children }) => {
 	};
 	const onLogout = () => {
 		localStorage.removeItem('user');
-		setLoggedInUser({});
+		setLoggedInUser(null);
 	};
 
 	return <AuthCtx.Provider value={{ loggedInUser, onLogin, onLogout }}>{children}</AuthCtx.Provider>;
