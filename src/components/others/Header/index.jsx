@@ -38,7 +38,7 @@ export const Header = ({ isDark, showSearch }) => {
 					</span>
 				</Button>
 			) : (
-				<Button variant="warning" onClick={() => history.push('/login')}>
+				<Button variant="warning" onClick={() => history.push('/auth')}>
 					Login
 				</Button>
 			)}

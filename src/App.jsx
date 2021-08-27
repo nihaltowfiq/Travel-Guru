@@ -8,7 +8,7 @@ function App() {
 			<Redirect from="/home" to="/" />
 			<Route exact path="/" component={Home} />
 			<Route path="/booking/:placeName" component={Booking} />
-			<Route path="/login" component={Auth} />
+			<Route path="/auth" component={Auth} />
 			<PrivateRoute path="/hotel-details/:placeName">
 				<HotelDetails />
 			</PrivateRoute>
