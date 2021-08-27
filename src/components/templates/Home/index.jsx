@@ -16,7 +16,7 @@ export const Home = ({ data }) => {
 				<h2>{showPlace.name.toUpperCase()}</h2>
 				<p>{showPlace.shortDescription}</p>
 				<Button onClick={() => handleBooking(showPlace.name)} variant="warning">
-					Booking →
+					Booking &rarr;
 				</Button>
 			</Col>
 			<Col lg={8}>

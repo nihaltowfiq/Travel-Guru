@@ -1,7 +1,7 @@
 import { Button, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuthCtx } from 'store';
-import { MainLink } from '../MainLink';
+import { MainLink } from '..';
 import './Header.css';
 
 export const Header = ({ isDark, showSearch }) => {
@@ -32,10 +32,13 @@ export const Header = ({ isDark, showSearch }) => {
 			</Nav>
 			{loggedInUser?.isSignedIn ? (
 				<Button variant="warning" onClick={onLogout}>
-					Logout, {loggedInUser?.name ? loggedInUser.name : loggedInUser.email}
+					Logout,{' '}
+					<span className="font-weight-normal">
+						{loggedInUser?.name ? loggedInUser.name : loggedInUser.email}
+					</span>
 				</Button>
 			) : (
-				<Button variant="warning" className="font-weight-bold" onClick={() => history.push('/login')}>
+				<Button variant="warning" onClick={() => history.push('/login')}>
 					Login
 				</Button>
 			)}
