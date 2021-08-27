@@ -11,7 +11,7 @@ export const Home = ({ data }) => {
 	};
 
 	return (
-		<Row className="mt-5 pt-5">
+		<Row className="mt-5 pt-5 text-white">
 			<Col className="place_detail" lg={4}>
 				<h2>{showPlace.name.toUpperCase()}</h2>
 				<p>{showPlace.shortDescription}</p>
