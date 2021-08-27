@@ -6,7 +6,7 @@ export const Home = () => {
 	const places = destinationData;
 
 	return (
-		<MainLayout isCover>
+		<MainLayout isCover showSearch>
 			<HomeComponent data={places} />
 		</MainLayout>
 	);

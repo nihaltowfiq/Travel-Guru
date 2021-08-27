@@ -30,7 +30,7 @@ export const Booking = () => {
 	};
 
 	return (
-		<MainLayout isCover>
+		<MainLayout isCover showSearch>
 			<BookingComponent
 				data={data}
 				values={values}

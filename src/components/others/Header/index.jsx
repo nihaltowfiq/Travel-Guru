@@ -1,10 +1,10 @@
-import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
+import { Button, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuthCtx } from 'store';
 import { MainLink } from '../MainLink';
 import './Header.css';
 
-export const Header = ({ isDark }) => {
+export const Header = ({ isDark, showSearch }) => {
 	const history = useHistory();
 	const { loggedInUser, onLogout } = useAuthCtx();
 	const logo = isDark ? '/images/Logo/light-logo.png' : '/images/Logo/dark-logo.png';
@@ -16,9 +16,9 @@ export const Header = ({ isDark }) => {
 					<img src={logo} alt="" />
 				</Navbar.Brand>
 			</Link>
-			<Form inline>
-				<FormControl type="text" className="Search" placeholder="Search your Destination" />
-			</Form>
+
+			{showSearch && <FormControl type="text" className="Search" placeholder="Search your Destination" />}
+
 			<Nav className="ml-auto align-items-center mx-1">
 				<MainLink to="/" isDark={isDark} className="Link_Style">
 					Home
