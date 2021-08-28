@@ -5,7 +5,7 @@ import './Auth.css';
 export const Auth = ({ newUser, setNewUser, onGoogle, onFacebook, changeHandler, submitHandler }) => {
 	return (
 		<Fragment>
-			<Form className="form-style mx-auto">
+			<Form className="auth_form mx-auto">
 				{newUser ? <h5>Create an acount</h5> : <h5>Login</h5>}
 				{newUser && (
 					<Form.Group onChange={changeHandler}>
@@ -40,15 +40,15 @@ export const Auth = ({ newUser, setNewUser, onGoogle, onFacebook, changeHandler,
 				</p>
 			</Form>
 
-			<hr style={{ backgroundColor: 'gray', height: '1px' }} />
-			<div style={{ textAlign: 'center' }}>
-				<Button onClick={onGoogle} className="btn-style" variant="secondary">
-					<img style={{ height: '25px' }} src="/images/Icon/google.png" alt="" /> Sign in with Google
+			<hr className="divider" />
+
+			<div className="social_wrapper">
+				<Button variant="light" className="social_btn" onClick={onGoogle}>
+					<img src="/images/Icon/google.png" alt="" /> <span>Continue with Google</span>
 				</Button>
-				<br />
-				<br />
-				<Button onClick={onFacebook} className="btn-style" variant="secondary">
-					<img style={{ height: '25px' }} src="/images/Icon/fb.png" alt="" /> Sign in with Facebook
+				<br /> <br />
+				<Button variant="light" className="social_btn" onClick={onFacebook}>
+					<img src="/images/Icon/fb.png" alt="" /> <span>Continue with Facebook</span>
 				</Button>
 			</div>
 		</Fragment>
