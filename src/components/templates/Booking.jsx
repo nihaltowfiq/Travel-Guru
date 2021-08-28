@@ -5,17 +5,12 @@ export const Booking = ({ data, values, error, changeHandler, submitHandler }) =
 
 	return (
 		<Row className="p-5 text-white">
-			<Col className="p-5 mt-5 card-detail">
+			<Col className="p-5">
 				<h2>{name.toUpperCase()}</h2>
 				<p>{longDescription}</p>
 			</Col>
 			<Col className="p-5">
-				<Form
-					className="form-style"
-					autoComplete="off"
-					style={{ paddingBottom: '20px' }}
-					onSubmit={submitHandler}
-				>
+				<Form autoComplete="off" style={{ paddingBottom: '20px' }} onSubmit={submitHandler}>
 					<Form.Group>
 						<Form.Label>Origin</Form.Label>
 						<Form.Control
